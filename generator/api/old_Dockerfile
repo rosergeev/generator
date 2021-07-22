@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0
+
+WORKDIR /api
+
+COPY . .
+
+RUN dotnet restore
+
+RUN dotnet publish -o /publish
+
+ENTRYPOINT [ "dotnet", "/publish/api.dll" ]

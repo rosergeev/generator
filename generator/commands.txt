@@ -1,0 +1,48 @@
+ # map folder from host to container (volume staff)
+ docker run --rm -it -v ${PWD}:c:\api -p 8080:80 mcr.microsoft.com/dotnet/aspnet:5.0
+ docker run --rm -it -v ${PWD}:/api -p 8080:80 mcr.microsoft.com/dotnet/aspnet:5.0
+
+# build own image over aspnet image with copying publish folder's content to container (use dockerfile)
+docker build -t aspnetcore/generator .
+docker image tag aspnetcore/generator:latest rosergeev/generator:latest
+docker run --rm -it -p 8080:80 aspnetcore/generator
+docker login
+docker push rosergeev/generator
+
+# take a look at config (env)
+docker inspect aspnetcore/generator 
+
+# build with sdk (build in a container, run on the host)
+docker run --rm -it -v ${PWD}:/api mcr.microsoft.com/dotnet/sdk:5.0
+dotnet --info
+rm -rf bin/ obj/
+dotnet restore
+dotnet build
+dotnet publish
+
+# build and run in a container
+dotnet run   # can't access to app as no port mapping
+dotnet run & # run dotnet in a background
+curl -L localhost:5000 # !doesn't work
+
+docker run --rm -it -v ${PWD}:/api -p 8080:80 mcr.microsoft.com/dotnet/sdk:5.0
+export ASPNETCORE_URLS=http://+:80 
+# doesn't impact kestrel server - it's runnig on 5000, but setting in appsettings.json url to http://0.0.0.0:80
+# chapter 5, clip 9
+
+
+docker build --rm=false --no-cache -t test .
+docker build -t aspnetcore/generator:build .
+
+
+docker-compose up -d # detached
+
+# this influence on chapter 9, clip 07
+# ,
+#     "Kestrel": {
+#         "Endpoints": {
+#             "Http": {
+#                 "Url": "http://0.0.0.0:80"
+#             }
+#         }
+#     }

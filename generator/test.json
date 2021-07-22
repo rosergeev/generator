@@ -1,0 +1,49 @@
+{
+    "status": "create",
+    "id": "d424fa178e17fd46f4e68f5f5ef8298d205ba6b0b1168dc8543aac98b2f3f4a0",
+    "from": "sha256:66792fe28528e8d833f92f5de217041075b30428f6dfcbd4a3e148f27e90ac39",
+    "Type": "container",
+    "Action": "create",
+    "Actor": {
+        "ID": "d424fa178e17fd46f4e68f5f5ef8298d205ba6b0b1168dc8543aac98b2f3f4a0",
+        "Attributes": {
+            "image": "sha256:66792fe28528e8d833f92f5de217041075b30428f6dfcbd4a3e148f27e90ac39",
+            "name": "stoic_buck"
+        }
+    },
+    "scope": "local",
+    "time": 1610479662,
+    "timeNano": 1610479662557892000
+}
+{
+    "status": "create",
+    "id": "8befc1273374e7adb6e2626dd9b215644ddd553532d974683da451b57501a10f",
+    "from": "sha256:f443f015ee1bb3c1005755164eb65c801578742ace65ed1a5de5a8450122b0b9",
+    "Type": "container",
+    "Action": "create",
+    "Actor": {
+        "ID": "8befc1273374e7adb6e2626dd9b215644ddd553532d974683da451b57501a10f",
+        "Attributes": {
+            "image": "sha256:f443f015ee1bb3c1005755164eb65c801578742ace65ed1a5de5a8450122b0b9",
+            "name": "optimistic_elgamal"
+        }
+    },
+    "scope": "local",
+    "time": 1610479663,
+    "timeNano": 1610479663135248500
+}
+{
+    "status": "tag",
+    "id": "sha256:6b1e1ecb71e990a2082506a613f754eddd3515c48bc3067bf42a4e48134a97f6",
+    "Type": "image",
+    "Action": "tag",
+    "Actor": {
+        "ID": "sha256:6b1e1ecb71e990a2082506a613f754eddd3515c48bc3067bf42a4e48134a97f6",
+        "Attributes": {
+            "name": "test:latest"
+        }
+    },
+    "scope": "local",
+    "time": 1610479663,
+    "timeNano": 1610479663344449700
+}
