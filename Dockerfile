@@ -16,6 +16,7 @@ COPY . .
 RUN dotnet test tests/tests.csproj
 
 # publish
+ENV TEAMCITY_PROJECT_NAME=fake
 RUN dotnet publish generator/api/api.csproj -o /publish
 
 # runtime stage
